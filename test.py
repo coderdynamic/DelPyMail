@@ -3,8 +3,8 @@ import imaplib, email, sys
 from imaplib import *
 
 #Account Credentials
-username = 'yash.sangai@st.niituniversity.in'
-password = 'Yash@1997'
+username = 'username@gmail.com'
+password = 'password'
 
 print("Logging into your Gmail Account...")
 
