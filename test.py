@@ -54,7 +54,7 @@ try:
     if len(datam) == 0:
         print("No emails Found, Finishing 4..")
     else:
-        print("%d emails found of Lost things by Office Dean, sending to trash folder..." % len(datam))
+        print("%d emails found, sending to trash folder..." % len(datam))
         for uid in datam: 
             mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
         mail.expunge()
