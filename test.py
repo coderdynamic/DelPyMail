@@ -15,71 +15,50 @@ try:
     print("Logged IN!!")
     mail.list()
     mail.select("inbox")
-    result, data = mail.uid('search', None, '(FROM "Deepak.Khanna@niituniversity.in")')
+    result, data = mail.uid('search', None, '(FROM "username2@gmail.com")')
     datam = data[0].split()
 
     if len(datam) == 0:
         print("No emails Found, Finishing 1..")
     else:
-        print("%d emails found of Deepak Khanna, sending to trash folder..." % len(datam))
+        print("%d emails found, sending to trash folder..." % len(datam))
         for uid in datam: 
             mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
         mail.expunge()
 
-    result, data = mail.uid('search', None, '(HEADER Subject "Newsletter")')
+    result, data = mail.uid('search', None, '(HEADER Subject "Subject")')
     datam = data[0].split()
 
     if len(datam) == 0:
         print("No emails Found, Finishing 2..")
     else:
-        print("%d emails found of Newsletter, sending to trash folder..." % len(datam))
+        print("%d emails found, sending to trash folder..." % len(datam))
         for uid in datam: 
             mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
         mail.expunge()
 
-    result, data = mail.uid('search', None, '(TO "noc17-hs02-discuss@nptel.iitm.ac.in")')
+    result, data = mail.uid('search', None, '(TO "username3@gmail.com")')
     datam = data[0].split()
 
     if len(datam) == 0:
         print("No emails Found, Finishing 3..")
     else:
-        print("%d emails found of NPTEL Soft Skills, sending to trash folder..." % len(datam))
+        print("%d emails found , sending to trash folder..." % len(datam))
         for uid in datam: 
             mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
         mail.expunge()
-
-    result, data = mail.uid('search', None, '(FROM "Library@niituniversity.in")')
+    
+    result, data = mail.uid('search', None, '(HEADER Subject "Subject" FROM "username4@gmail.com")')
     datam = data[0].split()
 
     if len(datam) == 0:
         print("No emails Found, Finishing 4..")
     else:
-        print("%d emails found of Library, sending to trash folder..." % len(datam))
-        for uid in datam: 
-            mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
-        mail.expunge()
-    
-    result, data = mail.uid('search', None, '(HEADER Subject "lost" FROM "Office.Student.Affairs@niituniversity.in")')
-    datam = data[0].split()
-
-    if len(datam) == 0:
-        print("No emails Found, Finishing 5..")
-    else:
         print("%d emails found of Lost things by Office Dean, sending to trash folder..." % len(datam))
         for uid in datam: 
             mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
         mail.expunge()
-        
-    result, data = mail.uid('search', None, '(HEADER Subject "lost" FROM "Ashok.Singh@niituniversity.in")')
-    datam = data[0].split()
-
-    if len(datam) == 0:
-        print("No emails Found, Finishing 6..")
-    else:
-        print("%d emails found of Lost things by A.K. Singh, sending to trash folder..." % len(datam))
-        for uid in datam: 
-            mail.uid('STORE',uid, '+X-GM-LABELS', '\\Trash')
-        mail.expunge()
+       
 except imaplib.IMAP4.error:
     print("LOGIN FAILED!!! ")
 
